@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    fetchMovie,
-    removeSelectedMovie,
-} from "../redux/action/movie";
+    fetchSelectedDetail,
+    removeDetail,
+} from "../redux/action/detail";
 import Loading from '../component/Loading'
 const Detail =()=>{
-    const { movieId } = useParams();
+    const { Id } = useParams();
+    const location = useLocation(); 
+    const param = location.pathname.split('/')[1]
     const dispatch = useDispatch();
-    const movie = useSelector((state) => state.movie);
-    const { genres, poster_path, original_title, vote_average, overview } = movie
-  useEffect(() => {
-    if (movieId && movieId!==''){dispatch(fetchMovie(movieId))}
-    return () => {
-        dispatch(removeSelectedMovie());
-      };
-  }, []);
+    const detail = useSelector((state) => state.detail);
+    const { genres, poster_path, title, name, vote_average, overview } = detail
+    useEffect(() => {
+            if (Id && Id!==''){dispatch(fetchSelectedDetail(Id, param))}
+            return () => {
+                dispatch(removeDetail());
+              };
+          }, []);
     return(<>
-    {Object.keys(movie).length === 0 ? (
+    {Object.keys(detail).length === 0 ? (
        <Loading/>
       ):( <div className="detail">
             <div className="detail_img">
@@ -33,7 +34,7 @@ const Detail =()=>{
                     })
                 }
                 </div>
-                <h1>{original_title}
+                <h1>{title||name}
                     <span className="content_rating">{(vote_average)?.toFixed(1)}</span>
                 </h1>
                 <p className="content_overview">{overview}</p>
