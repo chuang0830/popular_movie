@@ -24,6 +24,17 @@ body{
   overflow-y: hidden;
   gap: 0 30px;
 }
+.list_wrap::-webkit-scrollbar {
+    height: 12px;
+  }
+.list_wrap::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid rgba(219, 219, 219, 0.1);
+    background-color: rgba(219, 219, 219, 0.1);
+  }
+  .list_wrap::-webkit-scrollbar-track{
+    border: 2px solid rgba(219, 219, 219, 0.1);
+  }
 .movie_item{
   width: 152px;
   overflow: hidden;
