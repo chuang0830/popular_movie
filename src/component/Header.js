@@ -9,8 +9,6 @@ const Header = ()=>{
             navigate(`/query/${search}`)
         }
     }
-    useEffect(()=>{
-    },[search])
     return(<>
         <header>
             <input type="text" placeholder="請輸入電影名稱" onChange={(e)=>{setSearch(e.target.value)}}/>

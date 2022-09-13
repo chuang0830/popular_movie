@@ -13,7 +13,7 @@ const  Index = () =>{
   const trending = useSelector((state) => state.hero);
   const {vote_average, title, name, overview, backdrop_path}= trending.trending
   useEffect(() => {
-    dispatch(fetchMovieList());
+    dispatch(fetchMovieList())
     dispatch(fetchTvList())
     dispatch(fetchtrending())
   }, []);
