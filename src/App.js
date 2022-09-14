@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
-import Index from './pages/Index'
-import Detail from './pages/Detail'
+import Index from './page/Index'
+import Detail from './page/Detail'
 import NotFound from './component/NotFound';
 import Header from './component/Header';
-import Search from './pages/Search';
+import Search from './page/Search';
 
 
 function App() {

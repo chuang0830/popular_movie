@@ -9,11 +9,15 @@ const Header = ()=>{
             navigate(`/query/${search}`)
         }
     }
-    useEffect(()=>{
-    },[search])
+    const onEnter = (e) =>{
+        if (e.key === 'Enter') {
+            navigate(`/query/${search}`)
+          }
+    }
+   
     return(<>
         <header>
-            <input type="text" placeholder="請輸入電影名稱" onChange={(e)=>{setSearch(e.target.value)}}/>
+            <input type="text" placeholder="請輸入電影/戲劇名稱" onChange={(e)=>{setSearch(e.target.value)}} onKeyDown={onEnter}/>
            <button onClick={searchbtn}>Search</button>
         </header>
     </>)
