@@ -1,5 +1,5 @@
 here is the preview link
-[https://wowmovie-40lwcqy0h-chuang0830.vercel.app/](https://wowmovie-40lwcqy0h-chuang0830.vercel.app/)
+[https://wowmovie-chuang0830.vercel.app/](https://wowmovie-chuang0830.vercel.app/)
 
 # Getting Started with Create React App
 
