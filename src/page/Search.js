@@ -8,7 +8,6 @@ const Search =()=>{
   const { searchInput } = useParams();
     const dispatch = useDispatch();
     const searchItems = useSelector(state=>state.searchItem.items)
-    console.log('searchItems',searchItems)
     useEffect(() => {
         if (searchInput && searchInput!==''){dispatch(searchItem(searchInput))}
         return () => {
