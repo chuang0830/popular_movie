@@ -297,10 +297,53 @@ header button{
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.search{
+  padding: 150px 98px 50px 98px;
+}
+.category{
+  display: flex;
+  margin-bottom: 50px;
+  gap:  0 30px;
+}
+.category span{
+  padding: 8px 30px;
+  background-color: #161616;
+  color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+}
+.category span.active{
+  background: linear-gradient(91.47deg, #C10171 3.73%, #5C00F2 100%);
+}
 .searchList_wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  padding: 98px;
-  margin-top: 50px;
+}
+.person_item{
+  width: 120px;
+}
+.person_img{
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.person_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.person_name{
+  font-size: 16px;
+  line-height: 24px;
+  overflow: hidden;
+  color: #fff;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
