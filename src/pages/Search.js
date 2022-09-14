@@ -8,6 +8,7 @@ const Search =()=>{
   const { searchInput } = useParams();
     const dispatch = useDispatch();
     const searchItems = useSelector(state=>state.searchItem.items)
+    console.log('searchItems',searchItems)
     useEffect(() => {
         if (searchInput && searchInput!==''){dispatch(searchItem(searchInput))}
         return () => {
@@ -17,7 +18,7 @@ const Search =()=>{
     return(<>
           <div className="searchList_wrap" style={{flexWrap:'wrap'}}>
             {searchItems&&searchItems.length&&searchItems.map(value=>{
-              return <MovieItem value={value} key={value.id}/>
+              return value.backdrop_path && <MovieItem value={value} key={value.id}/>
             })}
             </div>
           </>)
