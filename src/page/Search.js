@@ -17,7 +17,7 @@ const Search =()=>{
     useEffect(() => {
         setTimeout(()=>{
           setLoading(false)
-        },3000)
+        },1000)
         if (searchInput && searchInput!==''){dispatch(searchItem(searchInput))}
         return () => {
           dispatch(removeSearch())  
