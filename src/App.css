@@ -155,7 +155,7 @@ body{
   height: 50px;
   border-radius: 50%;
   background: linear-gradient(91.47deg, #C10171 3.73%, #5C00F2 100%);
-  margin: 50px auto;
+  margin: 150px auto;
   animation-name: loading;
   animation-duration: .5s;
   animation-iteration-count: infinite;
@@ -166,22 +166,6 @@ body{
 }
 
 @keyframes loading {
-  0% {
-   transform: rotate(0deg)
-  }
-
-  25% {
-   transform: rotate(45deg)
-  }
-
-  50% {
-   transform: rotate(90deg)
-  }
-
-   75% {
-   transform: rotate(135deg)
-  }
-
   100% {
     transform: rotate(180deg)
   }
@@ -298,12 +282,17 @@ header button{
   overflow: hidden;
 }
 .search{
-  padding: 150px 98px 50px 98px;
+  padding: 0 98px 50px 98px;
+}
+.search h2{
+  text-align: center;
+  color: #fff;
 }
 .category{
   display: flex;
   margin-bottom: 50px;
   gap:  0 30px;
+  margin-top: 150px;
 }
 .category span{
   padding: 8px 30px;

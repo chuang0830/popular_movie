@@ -9,17 +9,23 @@ import Loading from "../component/Loading";
 const Search =()=>{
   const cateshow = ['movie','tv']
   const cateperson = ['person']
-  const [ cate, setCate ] = useState(cateperson)
+  const [loading, setLoading]=useState(true)
+  const [ cate, setCate ] = useState(cateshow)
   const { searchInput } = useParams();
     const dispatch = useDispatch();
     const searchItems = useSelector(state=>state.searchItem.items)
     useEffect(() => {
+        setTimeout(()=>{
+          setLoading(false)
+        },3000)
         if (searchInput && searchInput!==''){dispatch(searchItem(searchInput))}
         return () => {
           dispatch(removeSearch())  
         };
       }, [searchInput]);
     return(<>
+            {
+              loading?< Loading/>:
             <div className="search">
                 <div className="category">
                   <span className={cate.includes('tv')?'active':''}
@@ -36,9 +42,10 @@ const Search =()=>{
                     <PersonItem value={value} key={value.id}/>:
                     cate.includes(value.media_type)&&
                     <MovieItem value={value} key={value.id}/>
-                  }):searchItems?<h2>找不到符合的結果</h2>:<Loading/>}
+                  }):searchItems&&<h2>找不到符合的結果。</h2>}
                   </div>
             </div>
+             }
           </>)
 }
 export default Search
