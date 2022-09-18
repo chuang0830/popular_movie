@@ -56,7 +56,7 @@ const Search =()=>{
                   {
                     stateList&&stateList.length?stateList.map(value=>
                       <MovieItem value={value} key={value.id}/>):
-                      Pages>currentPage?< Loading/>:<h2>找不到符合的結果。</h2>
+                      !Pages?< Loading/>:<h2>找不到符合的結果。</h2>
                   }
                   </div>
                   </>
