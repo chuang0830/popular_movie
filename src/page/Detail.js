@@ -12,7 +12,8 @@ const Detail =()=>{
     const param = location.pathname.split('/')[1]
     const dispatch = useDispatch();
     const detail = useSelector((state) => state.detail);
-    const { genres, poster_path, title, name, vote_average, overview } = detail
+    const { genres, poster_path, title, name, vote_average, overview } = detail 
+    const defaultImg = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
     useEffect(() => {
             if (Id && Id!==''){dispatch(fetchSelectedDetail(Id, param))}
             return () => {
@@ -24,7 +25,9 @@ const Detail =()=>{
        <Loading/>
       ):( <div className="detail">
             <div className="detail_img">
-                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster_path}`}alt="" />
+                <img loading="lazy"
+                    src={poster_path===null?defaultImg:`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`}
+                    alt= {title||name}/>
             </div>
             <div className="detail_content">
                 <div className="content_genres">
