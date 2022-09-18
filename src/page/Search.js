@@ -19,7 +19,7 @@ const Search =()=>{
       if(currentPage){
         dispatch(searchItem(searchInput, cate, currentPage))
       }
-      return statePages?Math.round(statePages/PerPage):0
+      return statePages?Math.ceil(statePages/PerPage):0
     },[currentPage, statePages])   
 
     // const ShowList = useMemo(()=> {
@@ -34,7 +34,6 @@ const Search =()=>{
     useEffect(() => {
         if (searchInput && searchInput!==''){
           dispatch(searchItem(searchInput, cate, currentPage))
-          console.log('firre')
         }
         return () => {
           dispatch(removeSearch())  
@@ -57,7 +56,7 @@ const Search =()=>{
                   {
                     stateList&&stateList.length?stateList.map(value=>
                       <MovieItem value={value} key={value.id}/>):
-                      !currentPage?< Loading/>:<h2>找不到符合的結果。</h2>
+                      Pages>currentPage?< Loading/>:<h2>找不到符合的結果。</h2>
                   }
                   </div>
                   </>
