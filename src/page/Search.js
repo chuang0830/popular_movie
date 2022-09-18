@@ -6,6 +6,7 @@ import MovieItem from "../component/MovieItem";
 import Loading from "../component/Loading";
 
 const Search =()=>{
+  const [loading, setLoading]=useState(true)
   const [ cate, setCate ] = useState('movie')
   const [currentPage, setCurrentPage] = useState(1);
   const [PerPage] = useState(20);
@@ -35,34 +36,43 @@ const Search =()=>{
         if (searchInput && searchInput!==''){
           dispatch(searchItem(searchInput, cate, currentPage))
         }
+        setTimeout(()=>{
+          setLoading(false)
+        },2000)
         return () => {
           dispatch(removeSearch())  
         };
       }, [searchInput,cate]);
-    return(<>
-             <div className="search">
-                <div className="category">
-                  <span className={cate==='movie'?'active':''}
-                  onClick={()=>setCate('movie')}
-                  >Movie</span>
-                  <span className={cate==='tv'?'active':''}
-                   onClick={()=>setCate('tv')}
-                  >TV show</span>
-                </div>
-                {
-                  !stateList?<Loading/>:
-                  <div className="searchList_wrap" style={{flexWrap:'wrap'}}>
-                  {
-                    stateList&&stateList.length?stateList.map(value=>
-                      <MovieItem value={value} key={value.id}/>):
-                      (currentPage>Pages?<h2>找不到符合的結果。</h2>:< Loading/>)
-                  }
-                </div>}
-             </div>
-             <div className="pagination">
-                    <input type="number"  value={currentPage} onChange={(e)=>setCurrentPage(e.target.value)}/>
-                   <p>{Pages}</p>
-              </div>
-          </>)
+    return(
+            <>
+            {
+              loading?<Loading/>:(
+                <>
+                  <div className="search">
+                    <div className="category">
+                      <span className={cate==='movie'?'active':''}
+                      onClick={()=>setCate('movie')}
+                      >Movie</span>
+                      <span className={cate==='tv'?'active':''}
+                      onClick={()=>setCate('tv')}
+                      >TV show</span>
+                    </div>
+                    <div className="searchList_wrap" style={{flexWrap:'wrap'}}>
+                      {
+                        stateList&&stateList.length?stateList.map(value=>
+                          <MovieItem value={value} key={value.id}/>):
+                          (!stateList?< Loading/>:<h2>No Result Found!</h2>)
+                      }
+                    </div>
+                  </div>
+                  <div className="pagination">
+                      <input type="number"  value={currentPage} onChange={(e)=>setCurrentPage(e.target.value)}/>
+                      <p>{Pages}</p>
+                  </div>
+                </>
+              )
+            }
+          </>
+          )
 }
 export default Search
