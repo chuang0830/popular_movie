@@ -41,9 +41,6 @@ const Search =()=>{
       }, [searchInput,cate]);
     return(<>
              <div className="search">
-            {
-              !stateList?< Loading/>:
-            <>
                 <div className="category">
                   <span className={cate==='movie'?'active':''}
                   onClick={()=>setCate('movie')}
@@ -52,15 +49,15 @@ const Search =()=>{
                    onClick={()=>setCate('tv')}
                   >TV show</span>
                 </div>
-                <div className="searchList_wrap" style={{flexWrap:'wrap'}}>
+                {
+                  !stateList?<Loading/>:
+                  <div className="searchList_wrap" style={{flexWrap:'wrap'}}>
                   {
                     stateList&&stateList.length?stateList.map(value=>
                       <MovieItem value={value} key={value.id}/>):
-                      !Pages?< Loading/>:<h2>找不到符合的結果。</h2>
+                      (currentPage>Pages?<h2>找不到符合的結果。</h2>:< Loading/>)
                   }
-                  </div>
-                  </>
-             }
+                </div>}
              </div>
              <div className="pagination">
                     <input type="number"  value={currentPage} onChange={(e)=>setCurrentPage(e.target.value)}/>
