@@ -13,7 +13,7 @@ body{
   padding: 0 30px;
 }
 .list_container{
-  padding: 20px 0 20px 70px;
+  padding: 20px 104px 20px 104px;
 }
 .list_container:nth-of-type(even){
   background: rgba(104, 107, 114, 0.1);
@@ -283,6 +283,7 @@ header button{
 }
 .search{
   padding: 0 98px 50px 98px;
+  min-height: 500px;
 }
 .search h2{
   text-align: center;
@@ -290,9 +291,9 @@ header button{
 }
 .category{
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   gap:  0 30px;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 .category span{
   padding: 8px 30px;
@@ -301,6 +302,7 @@ header button{
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
+  border-radius: 4px;
 }
 .category span.active{
   background: linear-gradient(91.47deg, #C10171 3.73%, #5C00F2 100%);
@@ -335,4 +337,36 @@ header button{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.pagination p{
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+  font-weight: bold;
+}
+.pagination p::before{
+  content: '/';
+  margin: 0 10px;
+}
+.pagination input{
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+  font-weight: bold;
+  width: 40px;
+  border: none;
+  background-color: #686b726c;
+  border: 1px solid #686B72;
+  border-radius: 2px;
+  text-align: center;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -17,7 +17,7 @@ const Header = ()=>{
    
     return(<>
         <header>
-            <input type="text" placeholder="請輸入電影/戲劇名稱" onChange={(e)=>{setSearch(e.target.value)}} onKeyDown={onEnter}/>
+            <input type="text" placeholder="請輸入電影/戲劇名稱" onChange={(e)=>{setSearch(e.target.value)}} onKeyDown={onEnter} value={search}/>
            <button onClick={searchbtn}>Search</button>
         </header>
     </>)

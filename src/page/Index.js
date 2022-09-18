@@ -16,9 +16,7 @@ const  Index = () =>{
   useEffect(() => {
     dispatch(fetchtrending())
     dispatch(fetchMovieList())
-    setTimeout(()=>{
-      dispatch(fetchTvList())
-    },1000)
+    dispatch(fetchTvList())
     setTimeout(()=>{
       setLoading(false)
     },2000)
@@ -73,7 +71,7 @@ const  Index = () =>{
                 </div>
                 <div className="list_container">
                   <div className="list_title">
-                  Popular Foreign Language show
+                  Popular Foreign Language TV show
                   </div>
                   <div className="list_wrap">
                     {tvs&&tvs.length&&tvs.map(value=>{
