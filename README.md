@@ -4,7 +4,7 @@
 [https://wowmovie-chuang0830.vercel.app/](https://wowmovie-chuang0830.vercel.app/)
 
 ### Project Achievement
-Using [TMDB]([https://wowmovie-chuang0830.vercel.app/](https://www.themoviedb.org/movie)) apis to present brand new UI/UX.
+Using [TMDB](https://www.themoviedb.org/movie) apis to present brand new UI/UX.
 
 ### Project Function
 In index page, with the lastest trending movie and drama. It also provides detail page and search page to user.
