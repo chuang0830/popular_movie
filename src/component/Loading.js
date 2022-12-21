@@ -1,8 +1,10 @@
-const Loading =()=>{
-    return(<>
-     <div className="loading">
+const Loading = () => {
+  return (
+    <>
+      <div className="loading">
         <div className="circle"></div>
-     </div>
-    </>)
-}
-export default Loading
+      </div>
+    </>
+  );
+};
+export default Loading;
